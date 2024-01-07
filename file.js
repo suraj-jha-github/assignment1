@@ -1,5 +1,6 @@
 const Tesseract = require('tesseract.js');
-const path=require("path")
+const path=require("path");
+
 
 
 async function extractInfo(imagePath) {
@@ -11,6 +12,8 @@ async function extractInfo(imagePath) {
         logger: (info) => console.log(info), 
       }
     );
+
+    console.log(text)
 
 
     const lines = text.split('\n');
@@ -36,7 +39,7 @@ async function extractInfo(imagePath) {
     console.error('Error extracting information:', error.message || error);
   }
 }
-const inputImageRelativePath = 'assets/image1.jpg';
+const inputImageRelativePath = 'assets/breakpoint.png';
 
 const imagePath = path.join(__dirname, inputImageRelativePath);
 extractInfo(imagePath);
